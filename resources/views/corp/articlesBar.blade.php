@@ -1,6 +1,6 @@
 
 <div class="widget-first widget recent-posts">
-				                <h3>Recent Posts123</h3>
+				                <h3>Recent Posts</h3>
 				                <div class="recent-post group">
 				                    <div class="hentry-post group">
 				                        <div class="thumb-img"><img src="images/articles/001-55x55.png" alt="001" title="001" /></div>
