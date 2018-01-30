@@ -44,11 +44,11 @@ class ArticlesController extends SiteController
         return $articles;
     }
     protected function getComments(){
-         $comments =$this->c_rep->get();
+         $comments =$this->c_rep->get(['id','text','name','site','articles_id','users_id'],config('settings.comments_bar'));
          return $comments;
     }
-    protected function getPortfolios(){
-        $portfolios = $this->p_rep->get();
+    protected function getPortfolios($alias=false){
+        $portfolios = $this->p_rep->get(['title','text','alias','img','filter_alias'],config('settings.portfolios_bar'));
         return $portfolios;
     }
 }
