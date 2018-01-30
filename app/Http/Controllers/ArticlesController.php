@@ -39,8 +39,10 @@ class ArticlesController extends SiteController
     }
 
      protected function getArticles($alias=false){
-        $articles = $this->a_rep->get(['title','desc','alias','img','created_at','user_id','category_id'],FALSE,TRUE);
-        //$articles->load('user','category','comment');
+        $articles = $this->a_rep->get(['id','title','desc','alias','img','created_at','user_id','category_id'],FALSE,TRUE);
+        if($articles){
+        $articles->load('user','category','comments');
+        }
         return $articles;
     }
     protected function getComments(){

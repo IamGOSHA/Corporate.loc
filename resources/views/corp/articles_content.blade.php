@@ -22,7 +22,7 @@
 				                <div class="meta group">
 				                    <p class="author"><span>by <a href="#" title="Posts by {{$article->user->name}}" rel="{{$article->user->name}}">{{$article->user->name}}</a></span></p>
 				                    <p class="categories"><span>In: <a href="{{route('articlesCat',['cat_alias'=>$article->category->alias])}}" title="{{$article->category->title}}" rel="category tag">{{$article->category->title}}</a></span></p>
-				                    <p class="comments"><span><a href="#respond" title="Comment on Section shortcodes &amp; sticky posts!"></a></span></p>
+				                    <p class="comments"><span><a href="#respond" title="Comment on Section shortcodes &amp; sticky posts!">{{ $article->comments ? count($article->comments) : '0'}}</a></span></p>
 				                </div>
 				                <!-- post content -->
 				                <div class="the-content group">
@@ -35,10 +35,9 @@
 				            @endforeach
 
 
-				              	{{$articles->links()}}
-
+				              	<span style="display: inline-block">{{$articles->links()}}</span>
 				            
-				            <!--<div class="general-pagination group"><a href="#" class="selected">1</a><a href="#">2</a><a href="#">&rsaquo;</a></div>-->
+				            <!--<div class="general-pagination group"><a href="#" class="selected">{{$articles->links()}}</a><a href="#">2</a><a href="#">&rsaquo;</a></div>-->
 				            
 				        </div>
  @endif

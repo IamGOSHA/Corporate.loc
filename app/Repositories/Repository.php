@@ -13,7 +13,7 @@ abstract class Repository{
 		$builder->take($take);
 			}
 		if($pagination){
-			return $this->imageShow($builder->paginate(Config::get('setting.paginate')));
+			return $this->imageShow($builder->simplePaginate(Config::get('settings.paginate')));
 		}
 		return $this->imageShow($builder->get());
 		
