@@ -22,12 +22,12 @@
 				                <div class="meta group">
 				                    <p class="author"><span>by <a href="#" title="Posts by {{$article->user->name}}" rel="{{$article->user->name}}">{{$article->user->name}}</a></span></p>
 				                    <p class="categories"><span>In: <a href="{{route('articlesCat',['cat_alias'=>$article->category->alias])}}" title="{{$article->category->title}}" rel="category tag">{{$article->category->title}}</a></span></p>
-				                    <p class="comments"><span><a href="#respond" title="Comment on Section shortcodes &amp; sticky posts!">{{ $article->comments ? count($article->comments) : '0'}}</a></span></p>
+				                    <p class="comments"><span><a href="#respond" title="Comment on Section shortcodes &amp; sticky posts!">{{ $article->comments ? count($article->comments) : '0'}} {{Lang::choice('translate.comments',count($article->comments))}}</a></span></p>
 				                </div>
 				                <!-- post content -->
 				                <div class="the-content group">
 										{!! $article->desc!!}
-				                    <p><a href="article.html" class="btn   btn-beetle-bus-goes-jamba-juice-4 btn-more-link">→ {{Lang::get('translate.read_more')}}</a></p>
+				                    <p><a href="{{route('articles',['alias'=>$article->alias])}}" class="btn   btn-beetle-bus-goes-jamba-juice-4 btn-more-link">→ {{Lang::get('translate.read_more')}}</a></p>
 				                </div>
 				                <div class="clear"></div>
 				            </div>

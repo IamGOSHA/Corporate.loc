@@ -1,69 +1,64 @@
-@extends('layouts.app')
-
+@extends(env('THEME').'.layouts.site')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                           @if(count($errors) > 0)
+                       <div class="error-box box">
+                        @foreach($errors->all() as $error)
+                            <p>{{$error}}</p>
+                        @endforeach
+                       </div>
+                       @endif
+                         @if(session('status'))
+                       <div class="success-box box">
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+                            <p>{{session('status')}}</p>
+                       </div>
+                       @endif
+                        <!-- START CONTENT -->
+                        <div id="content-page" class="content group">
+                            <div class="hentry group">
+                                <form id="contact-form-contact-us" class="contact-form" method="post" action="{{url('auth/login')}}" enctype="multipart/form-data">
+                                    <div class="usermessagea"></div>
+                                    {{csrf_field()}}
+                                    <fieldset>
+                                        <ul>
+                                            <li class="text-field">
+                                                <label for="login">
+                                                <span class="label">имя</span>
+                                                <br />                  <span class="sublabel">This is the name</span><br />
+                                                </label>
+                                                <div class="input-prepend"><span class="add-on"><i class="icon-user"></i></span><input type="text" name="login" id="login" class="required" value="" /></div>
+                                                <div class="msg-error"></div>
+                                            </li>
+                                            <li class="text-field">
+                                                <label for="password">
+                                                <span class="label">пароль</span>
+                                                <br />                  <span class="sublabel">This is a field password</span><br />
+                                                </label>
+                                                <div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span><input type="password" name="password" id="password" class="required email-validate" value="" /></div>
+                                                <div class="msg-error"></div>
+                                            </li>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                                            <li class="submit-button">
+                                                <input type="text" name="yit_bot" id="yit_bot" />
+                                                <input type="hidden" name="yit_action" value="sendmail" id="yit_action" />
+                                                <input type="hidden" name="yit_referer" value="http://yourinspirationtheme.com/demo/pinkrio/corporate/contact/" />
+                                                <input type="hidden" name="id_form" value="126" />
+                                                <input type="submit" name="yit_sendmail" value="login" class="sendmail alignright" />            
+                                            </li>
+                                        </ul>
+                                    </fieldset>
+                                </form>
+                                <script type="text/javascript">
+                                    var messages_form_126 = {
+                                        name: "Please, fill in your name",
+                                        email: "Please, insert a valid email address",
+                                        message: "Please, insert your message"
+                                    };
+                                </script>
                             </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                            <!-- START COMMENTS -->
+                            <div id="comments">
                             </div>
+                            <!-- END COMMENTS -->
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

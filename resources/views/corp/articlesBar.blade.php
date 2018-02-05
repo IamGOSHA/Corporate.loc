@@ -43,9 +43,8 @@
         <div class="the-post group">
         
             <div class="avatar">
-            @if(isset($comment->email))
-                <img alt="" src="https://www.gravatar.com/avatar/{{md5($comment->email)}}?d=mm&55s" class="avatar" /> 
-                @endif
+
+                <img alt="" src="https://www.gravatar.com/avatar" class="avatar" /> 
             </div>
             <span class="author"><strong><a href="mailto:no-email@i-am-anonymous.not">{{$comment->name}}</a></strong> in</span> 
             <a class="title" href="{{route('articles.show',['alias'=>$comment->articles->alias])}}">{{$comment->articles->title}}</a>

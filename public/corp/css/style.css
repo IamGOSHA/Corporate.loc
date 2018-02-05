@@ -368,7 +368,18 @@ body.no_js .classic #nav ul li ul.submenu li:hover > ul, body.no_js .classic #na
 #header .sub-menu .sub-indicator, #header .children .sub-indicator {
     font-size: 13px;
 }
-                                
+.wrapp-result{
+    display: none;
+    min-width: 150px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 5000;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #bbb;
+    background-color: #fff;
+}                            
 /* ===== EXTRA CONTENT ===== */
 .extra-content { clear:both; }
 

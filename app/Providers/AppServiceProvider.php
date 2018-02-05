@@ -20,9 +20,9 @@ class AppServiceProvider extends ServiceProvider
             list($name,$val) = explode(',',$exp);
             return "<?php $name = $val ?>";
         });
-        DB::listen(function($query) {
-            echo '<h1>'.$query->sql.'</h1>';
-        });
+        //DB::listen(function($query) {
+         //   echo '<h1>'.$query->sql.'</h1>';
+        //});
         
     }
 

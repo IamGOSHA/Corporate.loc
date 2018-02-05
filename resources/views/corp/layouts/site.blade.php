@@ -22,6 +22,7 @@
     <head>
         
         <meta charset="UTF-8" />
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- this line will appear only if the website is visited with an iPad -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes" />
         
@@ -78,6 +79,7 @@
         <script type="text/javascript" src="{{asset(env('THEME').'/js/shortcodes.js')}}"></script>
 		<script type="text/javascript" src="{{asset(env('THEME').'/js/jquery.colorbox-min.js')}}"></script> <!-- nav -->
 		<script type="text/javascript" src="{{asset(env('THEME').'/js/jquery.tweetable.js')}}"></script>
+        <script type="text/javascript" src="{{asset(env('THEME').'/js/common.js')}}"></script>
 
     </head>
     <!-- END HEAD -->
@@ -126,7 +128,7 @@
                 
                 <!-- START SLIDER -->
                 @yield('slider')
-				
+				<div class="wrapp-result"></div>
 				
 				<!-- START PRIMARY -->
 				<div id="primary" class="sidebar-right">
